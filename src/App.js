@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import firebase from "firebase/compat/app";
+import "firebase/compat/database";
+import OrdersViewer from "./OrdersViewer";
 
-function App() {
+// Ваша конфигурация Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCgW7aq9KKx59APJOAbRj_3sBrl-eAaJps",
+  authDomain: "azmanot-c5dc8.firebaseapp.com",
+  databaseURL:
+    "https://azmanot-c5dc8-default-rtdb.europe-west1.firebasedatabase.app/",
+  projectId: "azmanot-c5dc8",
+  storageBucket: "azmanot-c5dc8.appspot.com",
+  messagingSenderId: "231622403612",
+  appId: "1:231622403612:web:4d775ae7d648ee95a161d9",
+};
+
+// Инициализация Firebase
+firebase.initializeApp(firebaseConfig);
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <OrdersViewer />
     </div>
   );
-}
+};
 
 export default App;
